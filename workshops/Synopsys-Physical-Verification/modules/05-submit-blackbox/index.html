@@ -2000,13 +2000,15 @@
 <h2 id="step-3-black_box-with-ambit">Step 3: black_box with ambit<a class="headerlink" href="#step-3-black_box-with-ambit" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Edit the runme script to uncomment the command under #cmd3 (comment cmd1 and cmd2). This command provides for heat map generation. VUE automatically reads and creates the heat map tab in the VUE GUI. -hm &rarr; top-cell heat map, -hm_cell &rarr; subcell heat map</p>
+<p>Edit the runme script to uncomment the command under #cmd3 (comment cmd1 and cmd2). This command provides for heat map generation. VUE automatically reads and creates the heat map tab in the VUE GUI. </p>
+<p>-hm &rarr; top-cell heat map </p>
+<p>-hm_cell &rarr; subcell heat map</p>
 </li>
 <li>
-<p>Edit black_box.rs configuration file by uncommenting the following lines:
-   ambit &rarr; this will enable ICV to read polygons till the value provided from the reference layer.
-   clip_region = false &rarr; to consider the entire polygon which is interacting with the ambit region. By default, it is true i.e. to clip polygons till the exclude region.
-   keep_layers &rarr; list of layers which are kept in their entirety for specified DRC black_box region cells.</p>
+<p>Edit black_box.rs configuration file by uncommenting the following lines:</p>
+<p>ambit &rarr; this will enable ICV to read polygons till the value provided from the reference layer.</p>
+<p>clip_region = false &rarr; to consider the entire polygon which is interacting with the ambit region. By default, it is true i.e. to clip polygons till the exclude region.</p>
+<p>keep_layers &rarr; list of layers which are kept in their entirety for specified DRC black_box region cells.</p>
 <p><img alt="" src="../../imgs/icv-bbox-cmd3-config.jpg" /></p>
 </li>
 <li>
