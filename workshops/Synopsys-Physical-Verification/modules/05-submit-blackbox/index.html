@@ -1277,8 +1277,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-run-the-bbox-test-case" class="md-nav__link">
-    Step 1: Run the BBOX test case
+  <a href="#step-1-run-the-test-case-without-black_box-configuration" class="md-nav__link">
+    Step 1: Run the test case without black_box configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-run-with-black_box-configuration" class="md-nav__link">
+    Step 2: Run with black_box configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-black_box-with-ambit" class="md-nav__link">
+    Step 3: black_box with ambit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-heat-map" class="md-nav__link">
+    Step 4: Heat Map
   </a>
   
 </li>
@@ -1889,8 +1910,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-run-the-bbox-test-case" class="md-nav__link">
-    Step 1: Run the BBOX test case
+  <a href="#step-1-run-the-test-case-without-black_box-configuration" class="md-nav__link">
+    Step 1: Run the test case without black_box configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-run-with-black_box-configuration" class="md-nav__link">
+    Step 2: Run with black_box configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-black_box-with-ambit" class="md-nav__link">
+    Step 3: black_box with ambit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-heat-map" class="md-nav__link">
+    Step 4: Heat Map
   </a>
   
 </li>
@@ -1913,24 +1955,92 @@
                 
                 
                 <h1 id="lab-5-run-bbox-test-case">Lab 5: Run BBOX Test Case<a class="headerlink" href="#lab-5-run-bbox-test-case" title="Permanent link">&para;</a></h1>
-<h2 id="step-1-run-the-bbox-test-case">Step 1: Run the BBOX test case<a class="headerlink" href="#step-1-run-the-bbox-test-case" title="Permanent link">&para;</a></h2>
+<p>The idea for this lab is to show you how to validate designs before all the building blocks are completed which allows for parallel development.</p>
+<h2 id="step-1-run-the-test-case-without-black_box-configuration">Step 1: Run the test case without black_box configuration<a class="headerlink" href="#step-1-run-the-test-case-without-black_box-configuration" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Change directory to BBOX test case by typing <code>cd ../BBOX</code> and hit enter.</p>
 </li>
 <li>
-<p>Edit the runme script to uncomment the command under #cmd1. You can use vi or gedit to edit the file.</p>
+<p>Edit the runme script to uncomment the command under #cmd1 (make sure that cmd2 and cmd3 are commented out). You can use vim, gvim, or gedit to edit the file. This command runs without defining -D black_box variable which should show the original DRCs reported.</p>
 </li>
 <li>
 <p>Run the test case by typing <code>./runme</code> then hit enter.</p>
 </li>
 <li>
-<p>ICV should run directly on the remote desktop host (i.e, doesn't submit a job to the scheduler) and should generate a log similar to this</p>
-<p><img alt="" src="../../imgs/icv-bbox.png" /></p>
+<p>After the run is completed, open ICV Workbench by typing <code>icvwb TOP_BB.oas</code>. Then click on ICV_VUE and browse to black_box_run/ORCA_TOP.vue</p>
+</li>
+<li>
+<p>Click on DRC Errors and notice there are <strong>399 errors</strong> for cell <strong>SRAMLP2RW32X4</strong>.</p>
+<p><img alt="" src="../../imgs/icv-bbox-cmd1-drc-errors.jpg" /></p>
+</li>
+<li>
+<p>Close VUE and ICV Worbench windows.</p>
 </li>
 </ol>
-<p>In this lab you learned how to run ICV BBOX test case.</p>
-<p>Click <strong>Next</strong> to move to the next lab.</p>
+<h2 id="step-2-run-with-black_box-configuration">Step 2: Run with black_box configuration<a class="headerlink" href="#step-2-run-with-black_box-configuration" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Edit the runme script to uncomment the command under #cmd2 (comment cmd1 and cmd3). This command defines -D black_box and provides an options set in black_box.rs file passed via -runset_config option.</p>
+</li>
+<li>
+<p>Run the test case by typing <code>./runme</code> then hit enter.</p>
+</li>
+<li>
+<p>After the run is completed, open ICV Workbench by typing <code>icvwb TOP_BB.oas</code>. Then click on ICV_VUE and browse to black_box_run/ORCA_TOP.vue</p>
+</li>
+<li>
+<p>Click on DRC Errors and notice there are <strong>no violations</strong> reported for <strong>SRAMLP2RW32x4</strong> as black_box is set for the cell.</p>
+<p><img alt="" src="../../imgs/icv-bbox-cmd2-drc-errors.jpg" /></p>
+</li>
+<li>
+<p>Close VUE and ICV Worbench windows.</p>
+</li>
+</ol>
+<h2 id="step-3-black_box-with-ambit">Step 3: black_box with ambit<a class="headerlink" href="#step-3-black_box-with-ambit" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Edit the runme script to uncomment the command under #cmd3 (comment cmd1 and cmd2). This command provides for heat map generation. VUE automatically reads and creates the heat map tab in the VUE GUI. -hm &rarr; top-cell heat map, -hm_cell &rarr; subcell heat map</p>
+</li>
+<li>
+<p>Edit black_box.rs configuration file by uncommenting the following lines:
+   ambit &rarr; this will enable ICV to read polygons till the value provided from the reference layer.
+   clip_region = false &rarr; to consider the entire polygon which is interacting with the ambit region. By default, it is true i.e. to clip polygons till the exclude region.
+   keep_layers &rarr; list of layers which are kept in their entirety for specified DRC black_box region cells.</p>
+<p><img alt="" src="../../imgs/icv-bbox-cmd3-config.jpg" /></p>
+</li>
+<li>
+<p>Run the test case by typing <code>./runme</code> then hit enter.</p>
+</li>
+<li>
+<p>After the run is completed, open ICV Workbench by typing <code>icvwb TOP_BB.oas</code>. Then click on ICV_VUE and browse to black_box_run/ORCA_TOP.vue</p>
+</li>
+<li>
+<p>Click on DRC Errors and notice there are 360 violations reported for black_box cell "SRAMLP2RW32x4" with ambit = 0.2</p>
+<p><img alt="" src="../../imgs/icv-bbox-cmd3-drc-errors.jpg" /></p>
+</li>
+</ol>
+<h2 id="step-4-heat-map">Step 4: Heat Map<a class="headerlink" href="#step-4-heat-map" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Click the Heat Map tab to start debugging. The Error Heat Map is a graphical interface used to visualize error distributions.</p>
+</li>
+<li>
+<p>Once the tab is opened, heat map quickly shows where all diagnostic warnings are flaged. Change the cell to "SRAMLP2RW32x4"
+    <img alt="" src="../../imgs/icv-bbox-heatmap-sram.jpg" /></p>
+</li>
+<li>
+<p>Zoom-in to the upper left error hotspot in heatmap. To view both Heat Maps and design shapes in ICVWB, overlay the heat map. Select "Overlay Heat Map" from the options list in the Violation heat Map window.</p>
+<p><img alt="" src="../../imgs/icv-bbox-heatmap-sram-upper-left.jpg" /></p>
+<p>Overlay heat map to the layout </p>
+<p><img alt="" src="../../imgs/icv-bbox-heatmap-sram-layout.jpg" /></p>
+</li>
+<li>
+<p>Close VUE and ICV Worbench windows.</p>
+</li>
+</ol>
+<p>In this lab you learned how to run ICV for the black box test case.</p>
+<p>Click <strong>Next</strong> to move to the wrap-up section.</p>
                 
               
               

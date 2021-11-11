@@ -1271,6 +1271,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#step-2-launch-icv-workbench" class="md-nav__link">
+    Step 2: Launch ICV Workbench
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-debug-with-icv_vue" class="md-nav__link">
+    Step 3: Debug with ICV_VUE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-heat-map" class="md-nav__link">
+    Step 4: Heat Map
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1895,6 +1916,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#step-2-launch-icv-workbench" class="md-nav__link">
+    Step 2: Launch ICV Workbench
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-debug-with-icv_vue" class="md-nav__link">
+    Step 3: Debug with ICV_VUE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-heat-map" class="md-nav__link">
+    Step 4: Heat Map
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1927,10 +1969,62 @@
 </li>
 <li>
 <p>ICV should run directly on the remote desktop host (i.e, doesn't submit a job to the scheduler) and should generate a log similar to this</p>
-<p><img alt="" src="../../imgs/icv-explorer.png" /></p>
+<p><img alt="" src="../../imgs/icv-explorer.jpg" /></p>
 </li>
 </ol>
-<p>In this lab you learned how to run ICV DRC Explorer.</p>
+<h2 id="step-2-launch-icv-workbench">Step 2: Launch ICV Workbench<a class="headerlink" href="#step-2-launch-icv-workbench" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Launch ICV Workbench for quick and easy viewing of layout data typing <code>icvwb EXP_TOP.oas &amp;</code> and hit enter.</li>
+</ol>
+<h2 id="step-3-debug-with-icv_vue">Step 3: Debug with ICV_VUE<a class="headerlink" href="#step-3-debug-with-icv_vue" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>To launch VUE from ICVWB, under the User mode click on ICV_VUE</p>
+<p><img alt="" src="../../imgs/icvwb-icv-vue.jpg" /></p>
+</li>
+<li>
+<p>Load the DRC explorer vue file by browsing to EXP_TOP.vue. Click on the browse icon then double click on explorer_run directory and select EXP_TOP.vue</p>
+</li>
+</ol>
+<h2 id="step-4-heat-map">Step 4: Heat Map<a class="headerlink" href="#step-4-heat-map" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>In the VUE Window, click on Heat Map to start debugging. The Error Heat Map is a graphical interface used to visualize error distributions.</p>
+<p><img alt="" src="../../imgs/icvwb-vue-heat-map.jpg" /></p>
+</li>
+<li>
+<p>Once the tab is opened, heat map quickly shows where all diagnostic warnings are flagged</p>
+<p><img alt="" src="../../imgs/icvwb-vue-heat-map-2.jpg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The color definitions window displays the heat map color definitions ranging from red (maximum error count) to dark blue (minimum error count)  </p>
+</div>
+</li>
+<li>
+<p>You can also change the Violation Category Mode to "Clustered Errors" where errors are clustered together so that multiple rules can be debugged concurrently</p>
+</li>
+<li>
+<p>Zoom-in to an error hotspot in the heatmap, to view both the heat map and design shapes in ICVWB, overlay the heat map. Click on <strong>Overlay Heat Map</strong> icon or right click in the layout area and select <strong>Overlay Heat Map</strong> from the menu. You can change the highlight pattern from the drop-down menu.</p>
+<p><img alt="" src="../../imgs/icvwb-vue-heat-map-overlay.jpg" /></p>
+<p>Overlaying marker to the layout (showing possibility of cell overlapping)</p>
+<p><img alt="" src="../../imgs/icvwb-vue-heat-map-overlay-layout.jpg" /></p>
+</li>
+<li>
+<p>You can highlight error marker from the heat map. Select <strong>M4.S.1</strong> rule from the violation section. Then right click on the heat map window, then click on "Highlight top-cell error in current window". This option highlights errors for violations in the current zoomed violation heat map window.</p>
+<p><img alt="" src="../../imgs/icvwb-vue-heat-map-m4.jpg" /></p>
+<p>Overlaying to the layout</p>
+<p><img alt="" src="../../imgs/icvwb-vue-heat-map-m4-layout.jpg" /></p>
+</li>
+<li>
+<p>You can adjust the size of the heat map grid. Slide the bar to the left to see larger grids (coarser) and to the right to see smaller grids (finer). You can toggle the info button for grid statistics.</p>
+<p><img alt="" src="../../imgs/icvwb-vue-heat-map-grid.jpg" /></p>
+</li>
+<li>
+<p>You can search and filter single or multiple violations by name or layer under the search option</p>
+<p><img alt="" src="../../imgs/icvwb-vue-heat-map-search.jpg" /></p>
+</li>
+</ol>
+<p>In this lab you learned how to run ICV DRC Explorer. Close VUE and ICV Workbench windows.</p>
 <p>Click <strong>Next</strong> to move to the next lab.</p>
                 
               
