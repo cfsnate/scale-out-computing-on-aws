@@ -2008,7 +2008,7 @@
 <p>Monitor the progress of the ELASTI test case by typing this command: <code>icv_dashboard -keys hSdSVaCfhpv elastic_run/run_details/saed32nm_1p9m_drc_rules.dp.log &amp;</code></p>
 </li>
 <li>
-<p>As the job progresses to ~15% Complete, it will require additional resources and will submit a new job to the cluster so it can obtain these resources dynamically. You an monitor the status of the jobs by typing <code>watch -n 10 "qstat -u `whoami`"</code> command in the terminal to keep monitoring the status of jobs every 10 seconds.</p>
+<p>As the job progresses, ICV will request more CPU resources or release idle resources. In this example, it will submit a new job to the cluster so it can obtain additional resources dynamically. You an monitor the status of the jobs by typing <code>watch -n 10 "qstat -u `whoami`"</code> command in the terminal to keep monitoring the status of jobs every 10 seconds.</p>
 </li>
 <li>
 <p>Depending on resource availability in the cluster, SOCA might need to create additional instances for the new job. Once the resources become available and the job status changes to running, the CPU history section in the ICV dashboard would be updated to reflect the additioanl CPUs as shown below.</p>
